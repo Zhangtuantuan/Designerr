@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="cn.edu.zjut.po.Example" table="example" catalog="designer" schema="dbo">
+	<class name="cn.edu.zjut.po.Example" table="example" catalog="designer">
 		<id name="exampleId" type="int">
 			<column name="exampleID" />
 			<generator class="increment" />

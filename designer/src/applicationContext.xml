@@ -14,13 +14,11 @@
                         http://www.springframework.org/schema/task
                         http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 	<!-- 数据源配置 -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<property name="url"
-			value="jdbc:sqlserver://localhost:1433;DatabaseName=designer" />
-		<property name="username" value="sa" />
-		<property name="password" value="sasa" />
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/designer?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=UTF8"/>
+		<property name="username" value="root"/>
+		<property name="password" value="lyy19971221"/>
 	</bean>
 	<!-- sessionFactory配置 -->
 	<bean id="sessionFactory"
@@ -28,9 +26,9 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
-	     <!--  			<prop key="hibernate.show_sql">true</prop> 配置显示sql语句 -->
-  	     <!--         <prop key="format_sql">true</prop> 让输出的sql语句格式化 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				  <prop key="hibernate.show_sql">true</prop><!-- 配置显示sql语句 -->
+  	    <prop key="format_sql">true</prop><!-- 让输出的sql语句格式化 -->
 			</props>
 		</property>
 		<property name="mappingResources"><!-- 映射文件配置 -->
@@ -45,6 +43,7 @@
 				<value>cn/edu/zjut/po/Subscribe.hbm.xml</value>
 				<value>cn/edu/zjut/po/Orderr.hbm.xml</value>
 				<value>cn/edu/zjut/po/Admin.hbm.xml</value>
+				<value>cn/edu/zjut/po/Webdata.hbm.xml</value>
 			</list>
 		</property>
 		
@@ -173,5 +172,13 @@
 	<bean id="panoramaAction" class="cn.edu.zjut.action.PanoramaAction"
 		scope="prototype">
 		<property name="panoramaServ" ref="panoramaService" />
+	</bean>
+	
+	<bean id="webdataDAO" class="cn.edu.zjut.dao.WebdataDAO" parent="baseDAO" />
+	<bean id="webdataService" class="cn.edu.zjut.service.WebdataService">
+		<property name="webdataDAO" ref="webdataDAO" />
+	</bean>
+	<bean id="webdataAction" class="cn.edu.zjut.action.WebdataAction" scope="prototype">
+		<property name="webdataService" ref="webdataService" />
 	</bean>
 </beans>

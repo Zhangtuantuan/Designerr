@@ -209,5 +209,8 @@
 		<action name="show3" class="adminAction" method="display2">
 			<result name="success">/authentication1.jsp</result>
 		</action>
+		 <action name="showDataChart" class="cn.edu.zjut.action.WebdataAction" method="showDataChart">
+         	<result name="success" >/datachart.jsp</result>
+         </action>
 	</package>
 </struts>
