@@ -2,8 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="cn.edu.zjut.po.Admin" table="admin" catalog="designer"
-		schema="dbo">
+	<class name="cn.edu.zjut.po.Admin" table="admin" catalog="designer">
 		<id name="adminId" type="string">
 			<column name="adminID" length="10"/>
 			<generator class="assigned" />

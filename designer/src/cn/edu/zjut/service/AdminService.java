@@ -26,7 +26,7 @@ public class AdminService implements IAdminService{
      }
      public boolean Authen(Designer designer) {
     	 designer=designerDAO.findById(designer.getDesignerId());
-    	 designer.setStatus("ÒÑÉóºË");
+    	 designer.setStatus("ï¿½ï¿½ï¿½ï¿½ï¿½");
     	 try {
  			designerDAO.update(designer);
  			designerDAO.update(designer);
@@ -47,21 +47,21 @@ public class AdminService implements IAdminService{
   		designer = adminDAO.findById(designer.getDesignerId());
   		request.put("designer", designer);
   	}
-      //Ìá½»ÁËÈÏÖ¤ÉêÇë£¬µ«»¹Ã»±»ÈÏÖ¤µÄÉè¼ÆÊ¦
+      //ï¿½á½»ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½Ê¦
       public List display1() {
      	 ActionContext ctx= ActionContext.getContext();
   		 session=(Map) ctx.get("session");
-  		 String state="ÉóºËÖÐ";
+  		 String state="ï¿½ï¿½ï¿½ï¿½ï¿½";
      	 String hql="from Designer designer where designer.status='"+state+"'";
      	 List list=adminDAO.findByHql(hql);
      	 session.put("designers",list);
      	 return list;
       }
-      //ÒÑ¾­ÈÏ¶¨³É¹¦µÄÉè¼ÆÊ¦
+      //ï¿½Ñ¾ï¿½ï¿½Ï¶ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¦
       public List display2() {
      	 ActionContext ctx= ActionContext.getContext();
   		 session=(Map) ctx.get("session");
-  		 String state="ÒÑÉóºË";
+  		 String state="ï¿½ï¿½ï¿½ï¿½ï¿½";
      	 String hql="from Designer designer where designer.status='"+state+"'";
      	 List list=adminDAO.findByHql(hql);
      	 session.put("designerss",list);
@@ -167,13 +167,17 @@ public class AdminService implements IAdminService{
      			 return list1;
      		 }
      		 else {
+     			 /*
      			 for(int i=0;i<list.size() && list1.size()<4;i++) {
      				 example=(Example)list.get(i);
      				 designer=example.getDesigner();
+     				 System.out.println("designer.getName():"+designer.getName());
+     				
      				 if(designer.getStatus1()!=null && designer.getStatus1().intValue()!=4) {
      					 list1.add(example);
      				 }
      			 }
+     			 */
      			 return list1;
      		 }
      	 }
