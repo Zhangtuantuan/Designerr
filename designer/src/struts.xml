@@ -212,5 +212,13 @@
 		 <action name="showDataChart" class="cn.edu.zjut.action.WebdataAction" method="showDataChart">
          	<result name="success" >/datachart.jsp</result>
          </action>
+         <action name="searchByAccount" class="designerAction" method="searchByAccount">
+			<result name="idSuccess">/phpOthers.jsp</result>
+			<result name="idFail">/selectDesigner.jsp</result>
+		</action>
+		<action name="apprise" class="appriseAction" method="apprise">
+			<result name="success">/php.jsp</result>
+			<result name="fail">/php.jsp</result>
+		</action>
 	</package>
 </struts>

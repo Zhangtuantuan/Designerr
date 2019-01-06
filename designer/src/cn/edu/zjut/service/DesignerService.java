@@ -44,6 +44,7 @@ public class DesignerService implements IDesignerService {
 	private IExampleDAO exampleDAO = null;
 	private IEmployerDAO employerDAO=null;
 	private IAdminDAO adminDAO=null;
+	Designer designer=new Designer();
 	public void setDesignerDAO(IDesignerDAO designerDAO) {this.designerDAO = designerDAO;}
 	public void setExampleDAO(IExampleDAO exampleDAO) {this.exampleDAO = exampleDAO;}
 	public void setEmployerDAO(IEmployerDAO employerDAO) {this.employerDAO = employerDAO;}
@@ -450,5 +451,16 @@ public class DesignerService implements IDesignerService {
 			e.printStackTrace();
 			return false;
 		} 
+	}
+	
+	public boolean searchByAccount(String account) {
+		ActionContext ctx= ActionContext.getContext();
+		session=(Map)ctx.get("session");
+		request=(Map) ctx.get("request");
+		String hql = "from Designer as d where d.account = 'account'";
+		designer = designerDAO.findByAccount(hql);
+		session.put("designer", designer);
+		request.put("designer", designer);
+		return true;
 	}
 }

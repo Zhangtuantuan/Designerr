@@ -13,4 +13,5 @@ public interface IDesignerDAO {
 	public void delete(Designer instance);
 	public Object merge(Designer instance);
 	public String findDes();
+	public Designer findByAccount(String account);
 }
