@@ -44,6 +44,7 @@
 				<value>cn/edu/zjut/po/Orderr.hbm.xml</value>
 				<value>cn/edu/zjut/po/Admin.hbm.xml</value>
 				<value>cn/edu/zjut/po/Webdata.hbm.xml</value>
+				<value>cn/edu/zjut/po/Apprise.hbm.xml</value>
 			</list>
 		</property>
 		
@@ -180,5 +181,13 @@
 	</bean>
 	<bean id="webdataAction" class="cn.edu.zjut.action.WebdataAction" scope="prototype">
 		<property name="webdataService" ref="webdataService" />
+	</bean>
+	
+	<bean id="appriseDAO" class="cn.edu.zjut.dao.AppriseDAO" parent="baseDAO" />
+	<bean id="appriseService" class="cn.edu.zjut.service.AppriseService">
+		<property name="appriseDAO" ref="appriseDAO" />
+	</bean>
+	<bean id="appriseAction" class="cn.edu.zjut.action.AppriseAction" scope="prototype">
+		<property name="appriseServ" ref="appriseService" />
 	</bean>
 </beans>

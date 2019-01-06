@@ -97,6 +97,21 @@ public class DesignerDAO extends BaseHibernateDAO implements IDesignerDAO{
 			   throw re;
 		   }
 	  }
+	  
+	  public Designer findByAccount(String account){
+			log.debug("finding Designer instance by account");
+			Designer e;
+			try {
+				e=(Designer)getSession().get(Designer.class,account);
+				log.debug("find successful");
+				return e;
+			}
+			catch (RuntimeException re) { 
+				log.error("find failed", re); 
+				throw re;
+			}
+		}
+	 
 }
 
 

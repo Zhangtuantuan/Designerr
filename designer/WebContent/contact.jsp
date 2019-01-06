@@ -30,13 +30,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	rel="stylesheet">
 
 </head>
-<body>
+<body style="background-color: #c7d7e4">
 	<!-- contact -->
-	<div class="contact">
-		<div class="container">
+	<div class="contact" style="background-color: #f5f5f5">
+		<div class="container" style="background-color: #c2c4c730">
 			<h2 class="w3ls_head">
 				<span>select</span>Designer
 			</h2>
+			
+			
+			<div class="searchByAccount">
+					<form action="searchByAccount" method="post">
+					<center>
+						<table>
+							<tr>
+								<th><label>查找设计师：</label></th>
+								<th><a href="./findAll" class="cur"
+									style="margin-left: 15px;">全部</a></th>
+								<!--  <th><s:textfield name="id" value="%{#request.designerId}"
+										style="margin-left: 15px;color: #bf0909;border-bottom: 1px solid #a94442" /> </th>-->
+										<th> <input class="searchtext" type="text" name="account" required="" style="margin-left: 15px;color: #bf0909;border-bottom: 1px solid #a94442"></th>
+								<th><s:submit value="搜索" style="margin-left: 30px"/></th>
+							
+						    </tr>
+						</table>
+			</center>
+			</form>
+		</div>
+		
 			<p class="w3agile">Choose your favorite designer to design your
 				most comfortable room.</p>
 			<p class="w3agile">预算:可议价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;需求类型:房屋设计&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报名截止时间:2018/12/31</p>
