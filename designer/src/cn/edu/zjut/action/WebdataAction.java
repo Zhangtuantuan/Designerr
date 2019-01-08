@@ -11,7 +11,7 @@ import cn.edu.zjut.service.IWebdataService;
 //merge with Admin Action
 public class WebdataAction {
 
-	private List datalist;
+	private List datalist;    
 
 	public List getDatalist() {
 		return datalist;
@@ -28,8 +28,8 @@ public class WebdataAction {
 		this.webdataService=webdataService;
 	}
 	
-	
-	public String showDataChart()           //模糊搜索
+	//show platform data
+	public String showDataChart()           
 	{
 		System.out.println("in action");
 		datalist = webdataService.findAll();

@@ -10,7 +10,8 @@ public class PanoramaAction {
 	public String getPath() {return path;}
 	public void setPath(String path) {this.path = path;}
 	
-	public String show()
+	//show panorama
+	public String show()   
 	{
 		panoramaServ.show(path);
 		return "showSuccess";

@@ -22,7 +22,8 @@ public class AppriseAction {
 	public void setApprise(Apprise apprise) {
 		this.apprise = apprise;
 	}
-
+ 
+	//employer apprise
 	public String apprise() {
 		String message;
 		HttpServletRequest request = ServletActionContext.getRequest();

@@ -14,14 +14,16 @@ public class EmployerAction {
 	public Employer getEmployer(){return employer;}
 	public void setEmployer(Employer employer){this.employer=employer;}
 	
-	public String registerEmp() {
+	//employer register
+	public String registerEmp() {     
 		if(employerServ.registerEmp(employer)) {
 			return "success";
 		}
 		return "fail";
 	}
 	
-	public String putEmployer()                       //判断访问雇主主页的是设计师本人还是其他人
+	//Determine if the designer or anyone else visited the employer's homepage
+	public String putEmployer()                       
 	{
 		if(employerServ.putEmployer(employer))
 			return "myself";
@@ -33,6 +35,7 @@ public class EmployerAction {
 	
 	private File uprofile;
 	public String uprofileFileName;
+	//update emplyer's profile
 	public String update3() {
 		EmployerService emserv=new EmployerService();	
 		if(emserv.update3(employer,uprofile,uprofileFileName))

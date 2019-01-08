@@ -40,19 +40,22 @@ public class ExampleAction {
 	public Comments getComments() {return comments;}
 	public void setComments(Comments comments) {this.comments=comments;}
 	
-	public String findAllExample()           //模糊搜索
+	//find all example
+	public String findAllExample()          
 	{
 		examples = exampleServ.findAll();
 		return "success";
 	}
 	
-	public String putExample()           //点进案例详情页时把案例详情以及评论等相关信息放进request中
+	//When you enter the case details page, put the case details and comments and other relevant information into the request
+	public String putExample()            
 	{
 		exampleServ.putExample(example);
 		return"success";
 	}
 	
-	public String review()                 //评论
+	//review
+	public String review()                 
 	{
 		if(exampleServ.review(example,comments))
 			return "viewSuccess";
@@ -60,14 +63,14 @@ public class ExampleAction {
 			return "viewFail";
 	}
 	
-	//通过搜索框查找
+	    //search example by condition
 		public String searchInFrame()
 		{
 			examples = exampleServ.searchInFrame(condition);
 			return "success";
 		}
 		
-		//点击筛选框中的元素查找
+		//search example 
 		public String searchInList()
 		{
 			System.out.println("in searchList");
@@ -83,22 +86,22 @@ public class ExampleAction {
 		}
 		
 		
-		//点赞
+		//praise
 		public String praise() throws IOException
 		{
 			System.out.println("exampleId:"+exampleId);
 		
-			int num = exampleServ.praise(exampleId);  //新的点赞数
+			int num = exampleServ.praise(exampleId);  //鏂扮殑鐐硅禐鏁�
 			ServletActionContext.getResponse().getWriter().print(num);
 			return null;
 		}
 		
-		//收藏
+		//star
 		public String star() throws IOException
 		{
 			System.out.println("exampleId:"+exampleId);
 			
-			exampleServ.star(exampleId);  //新的点赞数
+			exampleServ.star(exampleId);  //鏂扮殑鐐硅禐鏁�
 			//ServletActionContext.getResponse().getWriter().print(num);
 			return null;
 		}

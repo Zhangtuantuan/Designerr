@@ -9,12 +9,12 @@ import cn.edu.zjut.service.ISubscribeService;
 import cn.edu.zjut.service.SubscribeService;
 
 public class SubscribeAction {
-	private Subscribe subscribe;
-	private String employerId;
-	private String designerId;
-	private String subscribeID;
+	private Subscribe subscribe;   
+	private String employerId;    
+	private String designerId;    
+	private String subscribeID;   
 	
-	
+	 
 	public String getSubscribeID() {
 		return subscribeID;
 	}
@@ -55,28 +55,30 @@ public class SubscribeAction {
     	return "fail";
     }
     
-	public String putSubscribe()           //点进预约详情页时把预约详情放进request中
+    //When you enter the reservation details page, put the reservation details into the request
+	public String putSubscribe()           
 	{
 		subscribeServ.putSubscribe(subscribe);
 		return "success";
 	}
 	
-	
-	public String accept()
+	//accept order
+	public String accept()   
 	{
 		System.out.println("subscibeID"+subscribeID);
 		subscribeServ.accept(subscribeID);
 		return "success";
 	}
 	
-	public String reject()
+	//reject order
+	public String reject()   
 	{
 		subscribeServ.reject(subscribeID);
 		return "success";
 	}
 	
-	//新增
-	public String gotoGenerateOrder()
+	//generate orders
+	public String gotoGenerateOrder()  
 	{
 		subscribeServ.putSubscribe(subscribe);
 		return "success";
