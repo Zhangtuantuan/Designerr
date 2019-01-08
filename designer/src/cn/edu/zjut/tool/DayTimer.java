@@ -10,8 +10,8 @@ public class DayTimer {
 	    public DayTimer() {
 	          Calendar calendar = Calendar.getInstance(); 
 	                 
-	          /*** 定制每日2:00执行方法 ***/
-	          calendar.set(Calendar.HOUR_OF_DAY, 16);
+	          /*** 定制每日12:00执行方法 ***/
+	          calendar.set(Calendar.HOUR_OF_DAY, 12);
 	          calendar.set(Calendar.MINUTE, 10);
 	          calendar.set(Calendar.SECOND, 0);
 	           
@@ -31,8 +31,8 @@ public class DayTimer {
 	          //安排指定的任务在指定的时间开始进行重复的固定延迟执行。
 	          long tempdelay = 60*1000;
 	          long tempcircle = 30*1000;
-	          //timer.schedule(task,date,PERIOD_DAY);
-	          timer.schedule(task,tempdelay,tempcircle);
+	          timer.schedule(task,date,PERIOD_DAY);
+	         // timer.schedule(task,tempdelay,tempcircle);
 	         }
 	 
 	         // 增加或减少天数

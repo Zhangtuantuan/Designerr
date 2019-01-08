@@ -58,18 +58,15 @@ window.onload=function(){
 	var fangweng = echarts.init(document.getElementById('fangweng'));
 	var num = echarts.init(document.getElementById('num'));
 	var values=new Array(5);
-	
-	
+	var examples = new Array(5);
+	var orders = new Array(5);
 	
 	<s:iterator value="#request.datalist" status="s">
 		values[<s:property value="#s.index" />] = <s:property value="visit"/>
+		examples[<s:property value="#s.index" />] = <s:property value="examplenum"/>
+		orders[<s:property value="#s.index" />] = <s:property value="ordernum"/>
 	</s:iterator>
 
-	
-	
-	
-	
-	
 	var option = {
 			 title: {
 			        text: '日访问量记录表'
@@ -101,7 +98,7 @@ window.onload=function(){
 		        }
 		    },
 		    legend: {
-		        data:['联盟广告','视频广告','直接访问','搜索引擎']
+		        data:['设计师注册数','普通用户注册数','上传案例数量','订单生成量']
 		    },
 		    toolbox: {
 		        feature: {
@@ -146,7 +143,7 @@ window.onload=function(){
 		            type:'line',
 		            stack: '总量',
 		            areaStyle: {normal: {}},
-		            data:[1, 2, 1, 2, 1, 1, 1]
+		            data:[1, 2, examples[0], examples[1], examples[2], examples[3], examples[4]]
 		        },
 		        {
 		            name:'订单生成量',
@@ -159,7 +156,7 @@ window.onload=function(){
 		                }
 		            },
 		            areaStyle: {normal: {}},
-		            data:[1, 2, 1, 1, 1, 2, 2]
+		            data:[1, 2, orders[0], orders[1], orders[2], orders[3], orders[4]]
 		        }
 		    ]
 		};

@@ -299,7 +299,6 @@ color: #cac3b2;
 	<div class="temp" >HHH</div>
     <button name="butt" class="current" >综合排序</button>
     <button class="normal" name="butt">猜你喜欢</button>
-    <button class="normal" name="butt">按点赞数排序</button>
   
     <div name="di" class="con" style="display:block">
     

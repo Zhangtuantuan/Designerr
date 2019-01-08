@@ -1,5 +1,8 @@
 package cn.edu.zjut.tool;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.TimerTask;
 
 import javax.servlet.ServletContext;
@@ -30,6 +33,10 @@ public class UpdateDataTask extends TimerTask{
 		 
 	    webdataDAO = (IWebdataDAO)ac1.getBean("webdataDAO"); 
 	    Webdata wd = new Webdata();
+	    Date date = new Date();       
+	    Timestamp nousedate = new Timestamp(date.getTime());
+	   
+	    wd.setDate(nousedate);
 	    wd.setVisit((Integer)(servletContext.getAttribute("visit")));
 	    wd.setDesignernum((Integer)(servletContext.getAttribute("designernum")));
 	    wd.setEmployernum((Integer)(servletContext.getAttribute("employernum")));

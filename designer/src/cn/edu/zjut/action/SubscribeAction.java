@@ -73,7 +73,8 @@ public class SubscribeAction {
 	//reject order
 	public String reject()   
 	{
-		subscribeServ.reject(subscribeID);
+		System.out.println("action收到的subsribeID："+subscribeID);
+		subscribeServ.reject(subscribe);
 		return "success";
 	}
 	
