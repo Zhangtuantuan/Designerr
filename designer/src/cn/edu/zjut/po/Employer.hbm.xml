@@ -68,7 +68,7 @@
         
         
         <set name="examples_star" table="star" cascade="save-update">
-   			 <key column="collector"></key>
+   			 <key column="collecter"></key>
        		 <many-to-many class="cn.edu.zjut.po.Example" column="exampleID"></many-to-many>
   	    </set>
 	</class>

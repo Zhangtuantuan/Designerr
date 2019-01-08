@@ -196,6 +196,9 @@ public class DesignerService implements IDesignerService {
 			designer.getExamples_own().add(example);
 			designerDAO.update(designer);
 			request.put("tip", "濡楀牅绶ユ稉濠佺炊閹存劕濮涢敍锟�");
+			Designer designer1=(Designer)session.get("designer");
+			Designer designer2=designerDAO.findById(designer1.getDesignerId());
+			session.put("designer", designer2);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -450,5 +453,21 @@ public class DesignerService implements IDesignerService {
 			e.printStackTrace();
 			return false;
 		} 
+	}
+	
+	
+	public boolean removeCase(Example example)
+	{
+		// 1.閹峰灝鍩孲ervletContext
+		ServletContext servletContext = ServletActionContext.getServletContext();
+		// 閼惧嘲褰噐equest
+		ActionContext ctx = ActionContext.getContext();
+		Example example1=exampleDAO.findById(example.getExampleId());
+		exampleDAO.delete(example1);
+		session = (Map) ctx.get("session");
+		Designer designer1=(Designer)session.get("designer");
+		Designer designer2=designerDAO.findById(designer1.getDesignerId());
+		session.put("designer", designer2);
+		return true;
 	}
 }

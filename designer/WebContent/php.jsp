@@ -64,6 +64,7 @@
 								</s:iterator> <br> <s:property value="name" />
 
 							</a>
+							<a href="removeExample.action?example.exampleId=<s:property value='exampleId'/>">删除</a>
 						</div>
 					</s:iterator>
 				</div>

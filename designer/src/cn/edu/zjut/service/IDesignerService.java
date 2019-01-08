@@ -21,4 +21,5 @@ public interface IDesignerService {
 	public boolean recommend1(int money1);
 	public boolean recommend2(int money1);
 	public boolean recommend3(String message);
+	public boolean removeCase(Example example);
 }

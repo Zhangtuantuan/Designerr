@@ -57,6 +57,12 @@ public class DesignerAction extends ActionSupport {
 	}
 	
 	
+	public String removeCase() throws Exception { // 娑撳﹣绱跺鍫滅伐
+		designerServ.removeCase(example);
+		return "success";
+	}
+
+	
 	public String upload() throws Exception {               //娑撳﹣绱跺鍫滅伐
 		if (designerServ.upload(example,upload,upload2))
 			return "uploadSucccess";

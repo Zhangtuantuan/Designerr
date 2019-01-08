@@ -29,7 +29,7 @@
 			<column name="visits"/>
 		</property>
 		<!-- 与designer的多对一关联（双向）-->
-		<many-to-one name="designer" class="cn.edu.zjut.po.Designer" cascade="all" lazy="false">
+		<many-to-one name="designer" class="cn.edu.zjut.po.Designer" lazy="false">
 			<column name="designerID" />
 		</many-to-one>
 		<!-- 与examplePanorama的一对多关联（双向） -->
@@ -48,10 +48,11 @@
 			<one-to-many class="cn.edu.zjut.po.Comments" /> <!-- 映射到关联类属性 -->
 		</set>
 		
-		<!-- 与designers的多对多关联（单向） -->
-   <!--  	<set name="em_collecters" table="star" cascade="save-update" lazy="false">
+		
+		<set name="em_collecters" table="star" lazy="false" cascade="all">
    			 <key column="exampleID"></key>
        		 <many-to-many class="cn.edu.zjut.po.Employer" column="collecter"></many-to-many>
-  	    </set>  -->
+  	    </set>
+  	    
 	</class>
 </hibernate-mapping>

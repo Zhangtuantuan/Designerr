@@ -212,5 +212,9 @@
 		 <action name="showDataChart" class="cn.edu.zjut.action.WebdataAction" method="showDataChart">
          	<result name="success" >/datachart.jsp</result>
          </action>
+         <action name="removeExample" class="designerAction" method="removeCase">
+			<result name="success">/php.jsp</result>
+		</action>
+         
 	</package>
 </struts>
