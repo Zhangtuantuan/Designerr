@@ -19,7 +19,8 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
  <script type="text/javascript">  
  </script>
-</head> 
+</head>
+
 <body>
 <header class="container" >
 	
@@ -31,6 +32,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</a>
+					
 						<div class="nav-collapse collapse">
 							<ul class="nav">
 								<li><a href="index.jsp">首页</a></li>
@@ -110,15 +112,18 @@
 			</div>
 			
 		     <div class="layui-input-inline">
-            <form action="" method="post">
+            <form action=alipay.trade.page.pay.jsp method="post" target="_blank" name=alipayment>
 			<input type="hidden" name="state"  value="已支付" />
-			<input type="hidden" name="orderrId"  value="<s:property value="#request.orderr.orderrId"/>" />
-			<button id="cancel" class="layui-btn">支付</NOtton>
+			<input type="hidden" id="WIDout_trade_no" name="WIDout_trade_no"  value="<s:property value="#request.orderr.orderrId"/>" />
+			<input type="hidden" id="WIDsubject" name="WIDsubject"  value="<s:property value="#request.orderr.title"/>" />
+			<input type="hidden" id="WIDtotal_amount" name="WIDtotal_amount"  value="<s:property value="#request.orderr.money"/>" />
+			<input type="hidden" id="WIDbody" name="WIDbody"  value="<s:property value="#request.orderr.description"/>" />
+			<button type="submit" id="cancel" class="layui-btn">支付</button>
 			</form>
 			</div>
 			
         </s:if>
-        <s:elseif test='%{#request.orderr.state.equals("已支付")}'>
+        <s:elseif test='%{#request.orderr.state.equals("已付款")}'>
             <div class="layui-input-inline">
             <form action="" method="post">
 			<input type="hidden" name="state"  value="退款" />
@@ -128,10 +133,12 @@
 			</div>
 			
 		      <div class="layui-input-inline">
-            <form action="" method="post">
+            <form name=alipayment action=alipay.trade.page.ok.jsp method="post">
 			<input type="hidden" name="state"  value="完成" />
 			<input type="hidden" name="orderrId"  value="<s:property value="#request.orderr.orderrId"/>" />
-			<button id="cancel" class="layui-btn">确认完成</NOtton>
+			<input type="hidden" id="WIDout_trade_no" name="WIDout_trade_no"  value="<s:property value="#request.orderr.orderrId"/>" />
+			<input type="hidden" id="WIDtotal_amount" name="WIDtotal_amount"  value="<s:property value="#request.orderr.money"/>" />
+			<button type="submit" id="cancel" class="layui-btn">确认完成</button>
 			</form>
 			</div>
 			
