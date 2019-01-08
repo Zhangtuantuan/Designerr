@@ -13,11 +13,11 @@ public class DesignerAction extends ActionSupport {
 	private Example example;
 	private Designer designer;
 	IDesignerService designerServ = null;
-	// 鐏忎浇顥婃稉濠佺炊閺傚洣娆㈢仦鐐达拷锟�
+	// Envelope Upload File Properties
 	private File[] upload;
 	private File[] upload2;
 
-	private String designerID; // 鐠佹崘顓哥敮鍫㈢椽閸欙拷
+	private String designerID; 
 	private String account;
 
 	public String getAccount() {
@@ -77,7 +77,8 @@ public class DesignerAction extends ActionSupport {
 		this.designer = designer;
 	}
 
-	public String gotoSubscribe() // 鐠哄疇娴嗛崚鎷岊嚉鐠佹崘顓哥敮鍫㈡畱妫板嫮瀹虫い鐢告桨
+	//subscribe
+	public String gotoSubscribe() 
 	{
 		// System.out.println("designerID:"+designerID);
 		Designer designer = new Designer();
@@ -87,21 +88,24 @@ public class DesignerAction extends ActionSupport {
 		return "success";
 	}
 
-	public String upload() throws Exception { // 娑撳﹣绱跺鍫滅伐
+	//upload example
+	public String upload() throws Exception { 
 		if (designerServ.upload(example, upload, upload2))
 			return "uploadSucccess";
 		else
 			return "uploadFail";
 	}
 
-	public String login() { // 閻ц缍�
+	//login
+	public String login() {
 		if (designerServ.login(designer))
 			return "loginSuccess";
 		else
 			return "loginFail";
 	}
 
-	public String putDesigner() // 閸掋倖鏌囬悙鐟板毊閳ユ粏顔栭梻顔款啎鐠佲�崇瑎娑撳銆夐垾婵囧瘻闁筋喚娈戦弰顖濐啎鐠佲�崇瑎閺堫兛姹夋潻妯绘Ц閸忔湹绮禍锟�
+	//To determine if it was the designer or anyone else who clicked the "Visit the Designer Home Page" button
+	public String putDesigner() 
 	{
 		if (designerServ.putDesigner(designer))
 			return "myself";
@@ -109,7 +113,8 @@ public class DesignerAction extends ActionSupport {
 			return "others";
 	}
 
-	public String judgeIdentity() // 鏉╂稑鍙嗛懛顏勭箒閻ㄥ嫪閲滄禍杞板瘜妞ゅ灚妞傞崚銈嗘焽閼奉亜绻侀弰顖濐啎鐠佲�崇瑎鏉╂ɑ妲搁梿鍥﹀瘜
+	//When you enter your profile, judge whether you're a designer or an employer
+	public String judgeIdentity() 
 	{
 		if (designerServ.judgeIdentity())
 			return "designer";
@@ -117,13 +122,15 @@ public class DesignerAction extends ActionSupport {
 			return "employer";
 	}
 
-	public String registerDes() { // 鐠佹崘顓哥敮鍫熸暈閸愶拷
+	//designer register
+	public String registerDes() { 
 		if (designerServ.registerDes(designer)) {
 			return "success";
 		}
 		return "fail";
 	}
 
+	//view example's details
 	public String viewExampleDetails() {
 		if (designerServ.viewExampleDetails(designer, example))
 			return "viewSuccess";
@@ -131,6 +138,7 @@ public class DesignerAction extends ActionSupport {
 			return "viewFail";
 	}
 
+	//find all designers
 	public String findAll() {
 		if (designerServ.findAll())
 			return "success";
@@ -138,6 +146,7 @@ public class DesignerAction extends ActionSupport {
 			return "false";
 	}
 
+	//find designers by praise
 	public String findByPraise() throws Exception {
 		if (designerServ.findByPraise())
 			return "praiseSuccess";
@@ -145,6 +154,7 @@ public class DesignerAction extends ActionSupport {
 			return "praiseFail";
 	}
 
+	//find designers by score
 	public String findByScore() throws Exception {
 		if (designerServ.findByScore())
 			return "scoreSuccess";
@@ -152,6 +162,7 @@ public class DesignerAction extends ActionSupport {
 			return "scoreFail";
 	}
 
+	//designer logout
 	public String logout() {
 		if (designerServ.logout())
 			return "success";
@@ -166,6 +177,7 @@ public class DesignerAction extends ActionSupport {
 	private int money1;
 	private String message;
 
+	//designer update profile
 	public String update() {
 		System.out.println(designer.getDesignerId());
 		System.out.println(designer.getAccount());
@@ -175,6 +187,7 @@ public class DesignerAction extends ActionSupport {
 			return "fail";
 	}
 
+	//designer certify 
 	public String update2() {
 		if (designerServ.update2(designer, certificate, certificateFileName))
 			return "success";
@@ -182,6 +195,7 @@ public class DesignerAction extends ActionSupport {
 			return "fail";
 	}
 
+	//apply for designer preference
 	public String recommend1() {
 		if (designerServ.recommend1(money1))
 			return "success";
@@ -189,6 +203,7 @@ public class DesignerAction extends ActionSupport {
 			return "fail";
 	}
 
+	//designer preference successfully
 	public String recommend2() {
 		if (designerServ.recommend2(money1))
 			return "success";
@@ -196,6 +211,7 @@ public class DesignerAction extends ActionSupport {
 			return "fail";
 	}
 
+	//apply for example preference
 	public String recommend3() {
 		if (designerServ.recommend3(message))
 			return "success";
@@ -251,7 +267,8 @@ public class DesignerAction extends ActionSupport {
 		this.message = message;
 	}
 
-	public String searchByAccount() // 妯＄硦鎼滅储
+	//find designer by account
+	public String searchByAccount() 
 	{
 		if (designerServ.searchByAccount(account))
 			return "idSuccess";

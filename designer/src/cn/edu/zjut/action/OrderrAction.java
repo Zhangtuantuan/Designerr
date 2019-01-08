@@ -44,6 +44,7 @@ public class OrderrAction {
 	public String getState() {return state;}
 	public void setState(String state) {this.state=state;}
 	
+	//change order's status
 	public String changeOrderrSt() throws Exception {
 		if (orderrServ.changeOrderrSt(orderrId,state)) {
 			return "success";
@@ -52,12 +53,14 @@ public class OrderrAction {
 		}
 	}
 	
+	//find order
 	public String getOrderrByID() {
 		System.out.println(orderrId);
 		orderr= orderrServ.getOrderrByID(orderrId);
 		return "success";
 	}
 	
+	//submit order
 	public String SubmitOrderr() {
 		if (orderrServ.SubmitOrderr(orderr,designer,employer)) {
 			return "success";

@@ -26,8 +26,9 @@ public class NeedsAction {
 	public Needs getNeed() {
 		return need;
 	}
-
-	public String order() {
+    
+    //release requirements
+	public String order() {  
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String message;
 		if (needsServ.wanted(need)) {
@@ -53,7 +54,7 @@ public class NeedsAction {
 	private Designer designer;
 	private String designerId;
 	private Orderr orderr;
-	private List signupList;//我的接单申请列表
+	private List signupList;
 	public List getSignupList() {
 		return signupList;
 	}
@@ -150,16 +151,19 @@ public class NeedsAction {
 	public void setOrderr(Orderr orderr) {
 		this.orderr = orderr;
 	}
-	public String findneeds() {
+	
+	// designers can look up requests from employers
+	public String findneeds() { 
 		needs1 = needsServ.findneeds(city, area0, area1, money0, money1, order);
 		return "findneedssuccess";
 	}
 	
+	//find needs by needsId
 	public String getNeedsByID() {
 		needs = needsServ.getNeedsByID(needsId);
 		return "success";
 	}
-	//设计师申请接单
+	//registration of Designers for Employers 'Needs
 	public void SignUp() throws Exception {
 		JSONObject result = new JSONObject();
 		if (needsServ.SignUp(needsId)) {
@@ -174,7 +178,7 @@ public class NeedsAction {
 		out.flush();
 		out.close();
 	}
-	//通过接单申请挑选设计师后跳转创建订单页面
+	//select designers who have signed up
 	public String SelectDes() throws Exception {
 		if(needsServ.selectDes(needs,designer)) {
 			return "success";
