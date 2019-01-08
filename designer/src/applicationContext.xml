@@ -164,6 +164,8 @@
 		<property name="orderrDAO" ref="orderrDAO" />
 		<property name="designerDAO" ref="designerDAO" />
 		<property name="employerDAO" ref="employerDAO" />
+		<property name="subscribeDAO" ref="subscribeDAO" />
+		
 	</bean>
 	<bean id="orderrAction" class="cn.edu.zjut.action.OrderrAction" scope="prototype">
 		<property name="orderrServ" ref="orderrService" />

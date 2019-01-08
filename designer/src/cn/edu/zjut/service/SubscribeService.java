@@ -58,8 +58,12 @@ public class SubscribeService implements ISubscribeService {
 	public void putSubscribe(Subscribe subscribe) {
 		ActionContext ctx = ActionContext.getContext();
 		request = (Map)ctx.get("request");
+		session = ctx.getSession();
 		subscribe = subscribeDAO.findById(subscribe.getSubscribeID());
 		request.put("subscribe", subscribe);
+		
+		//在session中保存subscribe
+		session.put("subscribe", subscribe);
 		Employer subscriber=subscribe.getSubscriber();
 		request.put("subscriber", subscriber);
 		request.put("scriber", subscribe.getScriber());
@@ -121,11 +125,16 @@ public class SubscribeService implements ISubscribeService {
 	}
 
 	@Override
-	public void reject(String subscribeID) {
+	public void reject(Subscribe subscribe) {
 		// TODO Auto-generated method stub
-		int id = Integer.parseInt(subscribeID);
-		// TODO Auto-generated method stub
-		Subscribe subscribe = subscribeDAO.findById(id);
+		subscribe = subscribeDAO.findById(subscribe.getSubscribeID());
 		subscribeDAO.delete(subscribe);
+		
+		
+		Designer designer  = (Designer)designerDAO.findById(subscribe.getScriber().getDesignerId());
+		session.put("designer", designer);
+		
+		//subscribeDAO.delete(subscribe);
+		
 	}
 }

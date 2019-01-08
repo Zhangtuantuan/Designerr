@@ -6,5 +6,5 @@ public interface ISubscribeService {
 	public boolean subscribe(Subscribe sub,String employerId,String designerId);
 	public void putSubscribe(Subscribe subscribe);
 	public void accept(String subscribeID);
-	public void reject(String subscribeID);
+	public void reject(Subscribe subscribe);
 }
